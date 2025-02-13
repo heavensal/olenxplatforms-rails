@@ -1,0 +1,2 @@
+module Others::PagesHelper
+end

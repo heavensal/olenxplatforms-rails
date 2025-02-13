@@ -1,0 +1,27 @@
+<h1 class="font-bold text-4xl">Mon Portfolio</h1>
+<p>Find me in app/views/dashboard/portfolios/show.html.erb</p>
+
+<h2>
+  <%= link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
+</h2>
+
+<h2>
+  <%= link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
+</h2>
+
+<% if @portfolio.projects.any? %>
+  <h2 class="font-bold text-2xl">Mes Projets</h2>
+  <ul>
+    <% @portfolio.projects.each do |project| %>
+      <li>
+        <%= link_to project.title, dashboard_portfolio_project_path(project) %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @portfolio.projects.empty? %>
+  <p>Vous n'avez pas encore de projets.</p>
+<% end %>
+
+<%= link_to 'Retour', root_path %>
