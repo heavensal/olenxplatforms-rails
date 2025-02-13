@@ -10,5 +10,4 @@ class PortfoliosController < ApplicationController
   def show
     @portfolio = Portfolio.includes(:ideas, :projects).with_attached_avatar.with_attached_qr_code.find(params[:id])
   end
-
 end

@@ -2,8 +2,8 @@ class Idea < ApplicationRecord
   belongs_to :portfolio
 
   has_many :reactions, dependent: :destroy
-  has_many :likes, -> { where reaction_type: 'like' }, class_name: 'Reaction'
-  has_many :dislikes, -> { where reaction_type: 'dislike' }, class_name: 'Reaction'
+  has_many :likes, -> { where reaction_type: "like" }, class_name: "Reaction"
+  has_many :dislikes, -> { where reaction_type: "dislike" }, class_name: "Reaction"
   has_one_attached :avatar
 
   validates :title, presence: true

@@ -16,25 +16,25 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users/registrations", sessions: "users/sessions", confirmations: "users/confirmations", passwords: "users/passwords", unlocks: "users/unlocks" }
 
-  resources :portfolios, only: [:index, :show] do
-    resources :ideas, only: [:index, :show]
-    resources :projects, only: [:index, :show]
+  resources :portfolios, only: [ :index, :show ] do
+    resources :ideas, only: [ :index, :show ]
+    resources :projects, only: [ :index, :show ]
   end
 
-  resources :ideas, only: [:index, :show]
-  resources :projects, only: [:index, :show]
+  resources :ideas, only: [ :index, :show ]
+  resources :projects, only: [ :index, :show ]
 
   namespace :dashboard do
-    resource :portfolio, only: [:show, :edit, :update] do
-      resources :ideas, except: [:destroy]
-      resources :projects, except: [:destroy]
+    resource :portfolio, only: [ :show, :edit, :update ] do
+      resources :ideas, except: [ :destroy ]
+      resources :projects, except: [ :destroy ]
     end
 
-    resources :ideas, only: [:destroy]
-    resources :projects, only: [:destroy]
+    resources :ideas, only: [ :destroy ]
+    resources :projects, only: [ :destroy ]
   end
 
-  resources :reactions, only: [:create, :update, :destroy]
+  resources :reactions, only: [ :create, :update, :destroy ]
 
   namespace :admin do
     resources :users

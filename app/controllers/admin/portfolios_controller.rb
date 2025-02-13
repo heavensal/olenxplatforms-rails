@@ -17,7 +17,7 @@ class Admin::PortfoliosController < ApplicationController
   def update
     @portfolio = Portfolio.find(params[:id])
     if @portfolio.update(portfolio_params)
-      redirect_to admin_portfolio_path(@portfolio), notice: 'Le portfolio a bien été mis à jour'
+      redirect_to admin_portfolio_path(@portfolio), notice: "Le portfolio a bien été mis à jour"
     else
       render :edit
     end
@@ -26,9 +26,9 @@ class Admin::PortfoliosController < ApplicationController
   def destroy
     @portfolio = Portfolio.find(params[:id])
     if @portfolio.destroy
-      redirect_to admin_portfolios_path, notice: 'Le portfolio a bien été supprimé'
+      redirect_to admin_portfolios_path, notice: "Le portfolio a bien été supprimé"
     else
-      redirect_to admin_portfolios_path, alert: 'Impossible de supprimer le portfolio'
+      redirect_to admin_portfolios_path, alert: "Impossible de supprimer le portfolio"
     end
   end
 
@@ -39,6 +39,6 @@ class Admin::PortfoliosController < ApplicationController
   end
 
   def admin_only
-    redirect_to root_path, alert: 'Vous n\'avez pas les droits nécessaires' unless current_user.admin?
+    redirect_to root_path, alert: "Vous n'avez pas les droits nécessaires" unless current_user.admin?
   end
 end

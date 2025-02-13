@@ -17,7 +17,7 @@ class Admin::ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     if @project.update(project_params)
-      redirect_to admin_project_path(@project), notice: 'Le projet a bien été mis à jour'
+      redirect_to admin_project_path(@project), notice: "Le projet a bien été mis à jour"
     else
       render :edit
     end
@@ -26,9 +26,9 @@ class Admin::ProjectsController < ApplicationController
   def destroy
     @project = Project.find(params[:id])
     if @project.destroy
-      redirect_to admin_projects_path, notice: 'Le projet a bien été supprimé'
+      redirect_to admin_projects_path, notice: "Le projet a bien été supprimé"
     else
-      redirect_to admin_projects_path, alert: 'Impossible de supprimer le projet'
+      redirect_to admin_projects_path, alert: "Impossible de supprimer le projet"
     end
   end
 
@@ -39,6 +39,6 @@ class Admin::ProjectsController < ApplicationController
   end
 
   def admin_only
-    redirect_to root_path, alert: 'Vous n\'avez pas les droits nécessaires' unless current_user.admin?
+    redirect_to root_path, alert: "Vous n'avez pas les droits nécessaires" unless current_user.admin?
   end
 end

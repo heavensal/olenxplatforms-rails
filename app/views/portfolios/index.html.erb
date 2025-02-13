@@ -1,4 +1,40 @@
-<div>
-  <h1 class="font-bold text-4xl">Portfolios#index</h1>
-  <p>Find me in app/views/portfolios/index.html.erb</p>
+<h1 class="font-bold text-4xl">
+  Tous les Portfolios
+</h1>
+
+<div class="grid grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] grid-flow-row">
+  <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
+    <!-- Image en full cover -->
+    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
+    class: "w-full h-full object-cover transition-all duration-300 group-hover:brightness-75" %>
+
+    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
+    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
+    </div>
+  </div>
+
+    <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
+    <!-- Image en full cover -->
+    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
+    class: "w-full h-full object-cover transition-all duration-150 group-hover:brightness-75" %>
+
+    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
+    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
+    </div>
+  </div>
+
+    <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
+    <!-- Image en full cover -->
+    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
+    class: "w-full h-full object-cover transition-all duration-150 group-hover:brightness-50" %>
+
+    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
+    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
+      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
+    </div>
+  </div>
+</div>
+
 </div>

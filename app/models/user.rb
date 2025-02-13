@@ -14,6 +14,6 @@ class User < ApplicationRecord
   after_create :create_portfolio
 
   def admin?
-    role == 'admin'
+    role == "admin"
   end
 end

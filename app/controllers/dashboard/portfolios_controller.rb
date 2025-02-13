@@ -15,7 +15,7 @@ class Dashboard::PortfoliosController < ApplicationController
   def update
     @portfolio = current_user.portfolio
     if @portfolio.update(portfolio_params)
-      redirect_to dashboard_portfolio_path(@portfolio), notice: 'Le portfolio a bien été mis à jour'
+      redirect_to dashboard_portfolio_path, notice: "Le portfolio a bien été mis à jour"
     else
       render :edit
     end
@@ -24,9 +24,6 @@ class Dashboard::PortfoliosController < ApplicationController
   private
 
   def portfolio_params
-    params.require(:portfolio).permit(:name, :description, :avatar)
+    params.require(:portfolio).permit(:company_name, :description, :avatar)
   end
-
-
-
 end

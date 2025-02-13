@@ -17,7 +17,7 @@ class Admin::IdeasController < ApplicationController
   def update
     @idea = Idea.find(params[:id])
     if @idea.update(idea_params)
-      redirect_to admin_idea_path(@idea), notice: 'Le projet a bien été mis à jour'
+      redirect_to admin_idea_path(@idea), notice: "Le projet a bien été mis à jour"
     else
       render :edit
     end
@@ -26,9 +26,9 @@ class Admin::IdeasController < ApplicationController
   def destroy
     @idea = Idea.find(params[:id])
     if @idea.destroy
-      redirect_to admin_ideas_path, notice: 'Le projet a bien été supprimé'
+      redirect_to admin_ideas_path, notice: "Le projet a bien été supprimé"
     else
-      redirect_to admin_ideas_path, alert: 'Impossible de supprimer le projet'
+      redirect_to admin_ideas_path, alert: "Impossible de supprimer le projet"
     end
   end
 
@@ -39,6 +39,6 @@ class Admin::IdeasController < ApplicationController
   end
 
   def admin_only
-    redirect_to root_path, alert: 'Vous n\'avez pas les droits nécessaires' unless current_user.admin?
+    redirect_to root_path, alert: "Vous n'avez pas les droits nécessaires" unless current_user.admin?
   end
 end

@@ -2,26 +2,42 @@
   <h1 class="font-bold text-4xl">Modifier mon Portfolio</h1>
   <p>Find me in app/views/dashboard/portfolios/edit.html.erb</p>
 
-  <div>
-    <%= form_with(model: @portfolio), url: dashboard_portfolio_path, method: :patch do |form| %>
+  <div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+    <%= form_with model: @portfolio, url: dashboard_portfolio_path, method: :patch, html: { class: "space-y-4" } do |form| %>
+
+      <!-- Titre -->
       <div>
-        <%= form.label :title %>
-        <%= form.text_field :title %>
+        <%= form.label :company_name, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_field :company_name, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+        <% if @portfolio.errors[:company_name].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:company_name].join(", ") %></p>
+        <% end %>
       </div>
 
+      <!-- Description -->
       <div>
-        <%= form.label :description %>
-        <%= form.text_area :description %>
+        <%= form.label :description, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.text_area :description, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+        <% if @portfolio.errors[:description].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:description].join(", ") %></p>
+        <% end %>
       </div>
 
+      <!-- Avatar -->
       <div>
-        <%= form.label :avatar %>
-        <%= form.file_field :avatar %>
+        <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.file_field :avatar, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm bg-white cursor-pointer focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+        <% if @portfolio.errors[:avatar].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:avatar].join(", ") %></p>
+        <% end %>
       </div>
 
+      <!-- Bouton de soumission -->
       <div>
-        <%= form.submit %>
+        <%= form.submit "Enregistrer", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition" %>
       </div>
+
     <% end %>
   </div>
+
 </div>

@@ -22,11 +22,17 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= render "layouts/navbar/#{current_user ? current_user.role : 'no_user'}" %>
+  <body class="bg-gray-950 text-white">
 
-    <main class="container mx-auto mt-28 px-5">
-      <%= yield %>
-    </main>
+    <header id="navbar" class="sticky top-0 z-50 bg-gray-900 h-16">
+      <%= render "layouts/navbar/#{current_user ? current_user.role : 'no_user'}" %>
+    </header>
+
+    <%= yield %>
+
+    <footer>
+      <p>© <%= Time.current.year %> Olenx Platforms</p>
+    </footer>
+
   </body>
 </html>

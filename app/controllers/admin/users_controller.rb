@@ -17,7 +17,7 @@ class Admin::UsersController < ApplicationController
   def update
     user = User.find(params[:id])
     if user.update(user_params)
-      redirect_to admin_user_path(user), notice: 'L\'utilisateur a bien été mis à jour'
+      redirect_to admin_user_path(user), notice: "L'utilisateur a bien été mis à jour"
     else
       render :edit
     end
@@ -26,9 +26,9 @@ class Admin::UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     if user.destroy
-      redirect_to admin_users_path, notice: 'L\'utilisateur a bien été supprimé'
+      redirect_to admin_users_path, notice: "L'utilisateur a bien été supprimé"
     else
-      redirect_to admin_users_path, alert: 'Impossible de supprimer l\'utilisateur'
+      redirect_to admin_users_path, alert: "Impossible de supprimer l'utilisateur"
     end
   end
 
@@ -39,6 +39,6 @@ class Admin::UsersController < ApplicationController
   end
 
   def admin_only
-    redirect_to root_path, alert: 'Vous n\'avez pas les droits nécessaires' unless current_user.admin?
+    redirect_to root_path, alert: "Vous n'avez pas les droits nécessaires" unless current_user.admin?
   end
 end

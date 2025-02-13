@@ -7,10 +7,10 @@ class Reaction < ApplicationRecord
   validates :reaction_type, inclusion: { in: %w[like dislike] }
 
   def self.like
-    where(reaction_type: 'like')
+    where(reaction_type: "like")
   end
 
   def self.dislike
-    where(reaction_type: 'dislike')
+    where(reaction_type: "dislike")
   end
 end

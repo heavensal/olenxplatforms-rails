@@ -63,11 +63,11 @@ Rails.application.configure do
   # Specify outgoing SMTP server. Remember to add smtp/* credentials via rails credentials:edit.
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address: 'smtp.titan.email',
+    address: "smtp.titan.email",
     port: 465,
-    user_name: ENV['EMAIL'],
-    password: ENV['EMAIL_PASSWORD'],
-    authentication: 'plain',
+    user_name: ENV["EMAIL"],
+    password: ENV["EMAIL_PASSWORD"],
+    authentication: "plain",
     enable_starttls_auto: true,
     ssl: true
   }
