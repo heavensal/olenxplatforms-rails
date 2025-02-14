@@ -1,4 +1,15 @@
-<div>
-  <h1 class="font-bold text-4xl">Projects#index</h1>
-  <p>Find me in app/views/projects/index.html.erb</p>
-</div>
+<h1>Tous les projets</h1>
+<ul  class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
+  <% @projects.each do |project| %>
+    <li class="project-card">
+    card
+    <div class="w-full mb-4 cursor-pointer" >
+    <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" src="project.image"/>
+    <div class="flex flex-col gap-2">
+      <h3><%= link_to project.title, project_path(project) %></h3>
+      <p class="uppercase line-clamp-3"><%= project.description.truncate(100) %></p>
+      </div>
+    </li>
+    </div>
+  <% end %>
+</ul>

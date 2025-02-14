@@ -1,3 +1,5 @@
+SCROLL POUR LA VERSION HTML
+
 <h1 class="font-bold text-4xl">
   Tous les Portfolios
 </h1>
@@ -38,3 +40,14 @@
 </div>
 
 </div>
+
+
+<h1>Tous les portfolios</h1>
+<ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
+  <% @portfolios.each do |portfolio| %>
+    <li class="portfolio-card">
+      <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
+      <p><%= portfolio.description.truncate(100) %></p>
+    </li>
+  <% end %>
+</ul>

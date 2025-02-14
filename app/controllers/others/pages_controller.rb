@@ -3,5 +3,6 @@ class Others::PagesController < ApplicationController
   def home
     @portfolios = Portfolio.with_attached_avatar.all
     @ideas = Idea.with_attached_avatar.order(updated_at: :desc)
+    @projects = Project.with_attached_avatar.order(updated_at: :desc)
   end
 end

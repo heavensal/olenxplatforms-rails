@@ -1,4 +1,63 @@
 <div>
-  <h1 class="font-bold text-4xl">Dashboard::Ideas#new</h1>
-  <p>Find me in app/views/dashboard/ideas/new.html.erb</p>
-</div>
+<h1 class="font-bold text-4xl">Ajouter une idée</h1>
+<p>Find me in app/views/dashboard/ideas/new.html.erb</p>
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md" class="grid grid-rows-[20%_60%_20%]">
+  <%= form_with model: @idea, url: new_dashboard_portfolio_idea(@idea), html: { class: "space-y-4" } do |form| %>
+
+    <!-- Titre -->
+      <div>
+        <%= form.text_field :idea_title, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+        <% if @portfolio.errors[:idea_title].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:idea_title].join(", ") %></p>
+        <% end %>
+      </div>
+
+  <input
+    type="text"
+    name="title"
+    placeholder="Titre"
+    value="<%= @idea.title %>"
+  >
+
+  <!-- Textearea -->
+
+  <textarea
+    class="border border-[var(--border__input)] p-4 text-base mb-5focus:outline-none"
+    name="description"
+    placeholder="Description"
+  ><%= @idea.description %></textarea>
+
+      <div>
+        <%= form.label :idea_description, class: "border border-[var(--border__input)] p-4 text-base mb-5focus:outline-none"
+        <% if @ideas.errors[:idea_description].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @ideas.errors[:idea_description].join(", ") %></p>
+        <% end %>
+      </div>
+
+    <!-- Avatar -->
+      <div>
+        <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
+        <%= form.file_field :avatar, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm bg-white cursor-pointer focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+        <% if @ideas.errors[:avatar].any? %>
+          <p class="text-red-500 text-sm mt-1"><%= @ideas.errors[:avatar].join(", ") %></p>
+        <% end %>
+      </div>
+
+
+  <div class="flex items-center gap-4">
+
+    <!-- Bouton de soumission -->
+      <div>
+        <%= form.submit "Enregistrer", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition" %>
+      </div>
+
+    <button type="submit" class="p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]">
+      Mettre à jour
+    </button>
+
+     <!-- Bouton dannulation' -->
+    <p onclick="window.history.back();" class="p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]">
+      Annuler
+    </p>
+  </div>
+</form>

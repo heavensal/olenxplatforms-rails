@@ -1,0 +1,55 @@
+<nav class="flex h-full items-center justify-center">
+
+  <div id="logo">
+    LOGO
+  </div>
+
+
+  <ul id="menu-items" class="flex grow justify-center gap-6">
+    <li>
+      <%= link_to "Home", root_path %>
+    </li>
+
+    <li>
+      <%= link_to 'Les Portfolios', portfolios_path %>
+    </li>
+
+    <li>
+      <%= link_to 'Les Projets', ideas_path %>
+    </li>
+
+    <li>
+      <%= link_to 'Les Réalisations', projects_path %>
+    </li>
+  </ul>
+
+  <ul class="flex justify-center gap-6">
+    <li>
+      <%= link_to 'Nos Services', "https://www.olenx.com", target:"_blank" %>
+    </li>
+
+    <% if user_signed_in? %>
+      <li>
+        <%= link_to "Mon Portfolio", dashboard_portfolio_path %>
+      </li>
+
+      <li>
+        <%= link_to 'Mon Compte', edit_user_registration_path %>
+      <li>
+      <li>
+        <%= link_to "Déconnexion", destroy_user_session_path, data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir vous déconnecter?" } %>
+      </li>
+
+    <% else %>
+      <li>
+        <%= link_to "Connexion", new_user_session_path %>
+      </li>
+
+      <li>
+        <%= link_to "Nous Rejoindre", new_user_registration_path, class: "border rounded-3xl bg-white text-black px-4 py-2" %>
+      </li>
+
+    <% end %>
+
+  </ul>
+</nav>

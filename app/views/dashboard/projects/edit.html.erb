@@ -1,4 +1,44 @@
-<div>
-  <h1 class="font-bold text-4xl">Dashboard::Projects#edit</h1>
-  <p>Find me in app/views/dashboard/projects/edit.html.erb</p>
+<h1 class="font-bold text-4xl">Modifier ma réalisation</h1>
+
+<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
+
+
+  <%= form_with model: @project, url: dashboard_portfolio_project_path(@project), method: :patch, html: { class: "space-y-4" } do |form| %>
+
+  <!-- Titre -->
+    <div>
+      <%= form.label :title, 'Titre', class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+      <%= form.text_field :title, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500", placeholder: "Donnez un titre à ma réalisation" %>
+    </div>
+
+  <!-- Textearea -->
+    <div>
+      <%= form.label :description, 'Description', class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+      <%= form.text_area :description, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500", placeholder: "Décrivez votre projet" %>
+    </div>
+
+  <!-- Avatar -->
+    <div>
+      <%= form.label :avatar, "Insérer une image",class: "block text-sm font-medium text-gray-700" %>
+      <%= form.file_field :avatar, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm bg-white cursor-pointer focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+    </div>
+
+
+  <div class="flex items-center gap-4">
+
+    <!-- Bouton de soumission -->
+      <div>
+        <%= form.submit "Enregistrer", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition" %>
+      </div>
+
+     <!-- Bouton dannulation' -->
+     <%= link_to 'Annuler', dashboard_portfolio_project_path(@project), class: "p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]" %>
+
+  </div>
+
+  <% end %>
+</div>
+
+<div class="text-center">
+  <%= link_to 'Supprimer', dashboard_portfolio_project_path(@project), data: { turbo_method: :delete, turbo_confirm: "Êtes-vous sûr de vouloir supprimer la réalisation ?" }, class: "text-red-500" %>
 </div>
