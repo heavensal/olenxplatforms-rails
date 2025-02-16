@@ -1,39 +1,66 @@
-<main>
-<section class="p-12 flex flex-col justify-center items-center gap-8 text-center mb-4">
-  <h1>
-  Collaborez, créez, innovez<br></br>{" "}
-  <span>OLENX Platforms</span>{" "}
-  <p class="max-w-[80%] text-sm">  Connectez freelances et entreprises : découvrez des
-  portfolios inspirants, proposez des projets ambitieux, et
-  collaborez en toute simplicité sur une plateforme dédiée.</p>
-</h1>
-</section>
+<main class="container mx-auto">
 
-<section>
-<ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
-/map tous les portfolios, ideas et projects
+  <section id="home-hero" class="text-center my-8">
+    <h1 class="font-bold text-4xl uppercase">
+      Collaborez, créez, innovez
+      <br>
+      <span class="text-2xl">
+        Olenx Platforms
+      </span>
+    </h1>
 
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
+    <p class="mt-4 w-8/10 mx-auto text-gray-400">
+      Connectez freelances et entreprises : découvrez des portfolios inspirants, proposez des projets ambitieux, et collaborez en toute simplicité sur une plateforme dédiée.
+    </p>
+  </section>
 
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
+  <section id="home-portfolios" class="py-12 px-6">
+    <!-- Titre principal -->
+    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
+      Les Portfolios
+    </h2>
 
- <div class="w-full mb-4 cursor-pointer">
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
- <div class="flex flex-col gap-2">
- <h3>card.title</h3>
- <p>card.description</p>
- </div>
- </div>
+    <!-- Liste des portfolios -->
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @portfolios.each do |portfolio| %>
 
-</ul>
+        <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
 
-</section>
+      <% end %>
+    </ul>
+
+  </section>
+
+  <section class="home-ideas py-12 px-6">
+
+    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
+      Les Projets
+    </h2>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @ideas.each do |idea| %>
+
+        <%= render 'ideas/components/idea_card', idea: idea %>
+
+      <% end %>
+    </ul>
+
+  </section>
+
+  <section class="home-ideas py-12 px-6">
+
+    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
+      Les Réalisations
+    </h2>
+
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @projects.each do |project| %>
+
+        <%= render 'projects/components/project_card', project: project %>
+
+      <% end %>
+    </ul>
+
+  </section>
 
 </main>

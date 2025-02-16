@@ -4,7 +4,7 @@ class ReactionsController < ApplicationController
 
   def create
     if @reaction.save
-      redirect_to idea_path(@reaction.idea), notice: "Vous avez réagi à cette idée de projet"
+      redirect_back fallback_location: root_path, notice: "Vous avez réagi à cette idée de projet"
     else
       redirect_to idea_path(@reaction.idea), alert: "Impossible de réagir à cette idée de projet"
     end
@@ -12,16 +12,16 @@ class ReactionsController < ApplicationController
 
   def update
     if @reaction.update(reaction_params)
-      redirect_to idea_path(@reaction.idea), notice: "Vous avez réagi à cette idée de projet"
+      redirect_back fallback_location: root_path, notice: "Vous avez réagi à cette idée de projet"
     else
       redirect_to idea_path(@reaction.idea), alert: "Impossible de réagir à cette idée de projet"
     end
   end
 
   def destroy
-    @reaction = @current_user.reactions.find(params[:id])
+    @reaction = current_user.reactions.find(params[:id])
     if @reaction.destroy
-      redirect_to idea_path(@reaction.idea), notice: "Votre réaction a bien été supprimée"
+      redirect_back fallback_location: root_path, notice: "Votre réaction a bien été supprimée"
     else
       redirect_to idea_path(@reaction.idea), alert: "Impossible de supprimer votre réaction"
     end

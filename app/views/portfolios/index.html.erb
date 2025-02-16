@@ -1,53 +1,16 @@
-SCROLL POUR LA VERSION HTML
+  <main id="home-portfolios" class="container mx-auto min-h-screen my-8">
+    <!-- Titre principal -->
+    <h1 class="text-4xl sm:text-4xl font-bold text-center my-4">
+      Les Portfolios
+    </h1>
 
-<h1 class="font-bold text-4xl">
-  Tous les Portfolios
-</h1>
+    <!-- Liste des portfolios -->
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @portfolios.each do |portfolio| %>
 
-<div class="grid grid-cols-[repeat(3,1fr)] grid-rows-[repeat(3,1fr)] gap-y-[16px] gap-x-[16px] grid-flow-row">
-  <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
-    <!-- Image en full cover -->
-    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
-    class: "w-full h-full object-cover transition-all duration-300 group-hover:brightness-75" %>
+        <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
 
-    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
-    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
-    </div>
-  </div>
+      <% end %>
+    </ul>
 
-    <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
-    <!-- Image en full cover -->
-    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
-    class: "w-full h-full object-cover transition-all duration-150 group-hover:brightness-75" %>
-
-    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
-    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
-    </div>
-  </div>
-
-    <div class="relative group w-full h-64 overflow-hidden rounded-lg shadow-md">
-    <!-- Image en full cover -->
-    <%= image_tag 'https://res.cloudinary.com/dmbigyamv/image/upload/v1738471638/olenx-platforms/fhzbjsmykd1e7afg4yd0.jpg',
-    class: "w-full h-full object-cover transition-all duration-150 group-hover:brightness-50" %>
-
-    <!-- Overlay du titre (caché par défaut, apparaît au hover) -->
-    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-150">
-      <h2 class="text-white text-xl font-bold">Titre du portfolio</h2>
-    </div>
-  </div>
-</div>
-
-</div>
-
-
-<h1>Tous les portfolios</h1>
-<ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
-  <% @portfolios.each do |portfolio| %>
-    <li class="portfolio-card">
-      <h2><%= link_to portfolio.title, portfolio_path(portfolio) %></h2>
-      <p><%= portfolio.description.truncate(100) %></p>
-    </li>
-  <% end %>
-</ul>
+  </main>

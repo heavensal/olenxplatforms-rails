@@ -1,38 +1,75 @@
+<main class="container mx-auto min-h-screen my-8 px-4">
 
-<main class="px-5 py-12">
+  <section id="hero-idea" class="grid grid-cols-4 mb-8">
 
-<section class="flex gap-2">
+    <div class="col-span-3">
+      <h1 class="font-bold text-4xl text-center mb-2">
+        <%= @idea.title %> <br> <%= @portfolio.company_name %>
+      </h1>
 
-<img src="company-avatar" alt="avatar">
+      <small class="text-gray-500 text-sm block text-center">
+        Dernière mise à jour: <%= @idea.updated_at.strftime("%d %B %Y à %H:%M") %>
+      </small>
+    </div>
 
-<div class="flex flex-col gap-2">
+    <div class="flex justify-center gap-4 items-center">
 
-<p>idea_name</p>
-<p>company_name</p>
+      <%# Likes logic %>
+      <%# si il n'y a pas de like, alors les svg sont noirs %>
+      <%# si il y a un like, alors le svg est blanc, et le button renvoie vers la suppression du like %>
+      <%# meme logique pour les dislikes %>
 
-</div>
+      <% if @reaction && @reaction.like? %>
+        <%= link_to reaction_path(@reaction), data: {turbo_method: :delete}, class:"text-center" do %>
+          <%= render 'ideas/components/like_selected_svg' %>
+          <sup>
+            <%= @idea.likes_count %>
+          </sup>
+        <% end %>
 
-container btn like & dislike
-<div class="flex gap-4 justify-center text-center">
+      <% else %>
+        <%= button_to reactions_path, params: { reaction: {idea_id: @idea.id, reaction_type: "like"} } do %>
+          <%= render 'ideas/components/like_svg' %>
+          <sup>
+            <%= @idea.likes_count %>
+          </sup>
+        <% end %>
 
-    btn like & count like
-<div class="flex items-center justify-center gap-2">
-<button>like</button>
-<p>like_count</p>
-</div>
+      <% end %>
 
-    btn dislike & count dislike
-<div class="flex items-center justify-center gap-2">
-<button>dislike</button>
-<p>dislike_count</p>
-</div>
+      <%# Dislikes logic %>
 
-</div>
+      <% if @reaction && @reaction.dislike? %>
+        <%= link_to reaction_path(@reaction), data: {turbo_method: :delete}, class: "text-center" do %>
+          <%= render 'ideas/components/dislike_selected_svg' %>
+          <sup>
+            <%= @idea.dislikes_count %>
+          </sup>
 
-</section>
+        <% end %>
 
-<section>
-contenu du idea
-</section>
+      <% else %>
+        <%= button_to reactions_path, params: { reaction: {idea_id: @idea.id, reaction_type: "dislike"} } do %>
+          <%= render 'ideas/components/dislike_svg' %>
+          <sup>
+            <%= @idea.dislikes_count %>
+          </sup>
+        <% end %>
+
+      <% end %>
+
+    </div>
+
+  </section>
+
+  <section class="mb-8">
+    <%= cl_image_tag @idea.avatar.key, class: "rounded-lg shadow-md w-full" %>
+  </section>
+
+  <section class="mb-8">
+    <p>
+      <%= @idea.description %>
+    </p>
+  </section>
 
 </main>

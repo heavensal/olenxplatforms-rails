@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= content_for(:title) || "Olenxplatforms Rails" %></title>
+    <title><%= content_for(:title) || "Olenx Platforms" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
@@ -22,16 +22,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="bg-gray-950 text-white">
+  <body class="bg-black text-white">
 
-    <header id="navbar" class="sticky top-0 z-50 bg-gray-900 h-16">
+    <header id="navbar" class="sticky top-0 z-50 bg-gray-900 h-16 px-4 ">
       <%= render "layouts/navbar/navbar" %>
     </header>
+
+    <%= render 'layouts/notification/message' %>
 
     <%= yield %>
 
     <footer>
-      <p>© <%= Time.current.year %> Olenx Platforms</p>
+      <p class="text-center">© <%= Time.current.year %> Olenx Platforms</p>
     </footer>
 
   </body>

@@ -1,23 +1,12 @@
-<h2>
-  <%= link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
-</h2>
 
-<h2>
-  <%= link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
-</h2>
-
-<h2>
-  <%= link_to 'Ajouter une Idée de Projet', new_dashboard_portfolio_idea_path %>
-</h2>
-
-<div class="container mx-auto px-4">
+<main class="container mx-auto my-8 min-h-screen">
   <!-- Informations du portfolio -->
-  <div class="bg-white shadow-md rounded-lg p-6">
-    <h1 class="font-bold text-4xl text-gray-800 mb-4">
+  <section id="hero-portfolio" class="border-white border-2">
+    <h1 class="font-bold text-4xl mb-4">
       <%= @portfolio.company_name %>
     </h1>
 
-    <p class="text-gray-600 text-lg">
+    <p class="text-gray-500 text-lg">
       <%= @portfolio.description %>
     </p>
 
@@ -25,41 +14,41 @@
     <div class="mt-6 grid grid-cols-2 gap-4">
       <% if @portfolio.avatar.attached? %>
         <div class="flex justify-center">
-          <%= cl_image_tag @portfolio.avatar.key, width: 300, height: 300, class: "rounded-lg shadow-md " %>
+          <%= cl_image_tag @portfolio.avatar.key, width: 100, height: 100, class: "rounded-lg shadow-md " %>
         </div>
       <% end %>
 
       <% if @portfolio.qr_code.attached? %>
         <div class="flex justify-center">
-          <%= cl_image_tag @portfolio.qr_code.key, width: 300, height: 300, class: "rounded-lg shadow-md" %>
+          <%= cl_image_tag @portfolio.qr_code.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
         </div>
       <% end %>
 
     </div>
-  </div>
+  </section>
 
   <!-- Section Réalisations -->
-  <div class="mt-8 bg-white shadow-md rounded-lg p-6">
-    <h2 class="font-bold text-2xl text-gray-800 mb-4">
+  <section class="mt-8 border-white border-2">
+    <h2 class="font-bold text-2xl mb-4">
       Mes Réalisations
     </h2>
 
     <% if @portfolio.projects.any? %>
       <ul class="space-y-3">
         <% @portfolio.projects.each do |project| %>
-          <li class="bg-gray-100 hover:bg-gray-200 transition p-3 rounded-lg">
-            <%= link_to project.title, dashboard_portfolio_project_path(project), class: "text-blue-600 font-medium" %>
+          <li class="">
+            <%= link_to project.title, dashboard_portfolio_project_path(project), class: "" %>
           </li>
         <% end %>
       </ul>
     <% else %>
       <p class="text-gray-500">Vous n'avez pas encore inséré vos réalisations.</p>
     <% end %>
-  </div>
+  </section>
 
   <!-- Section Idées de projets -->
-  <div class="mt-8 bg-white shadow-md rounded-lg p-6">
-    <h2 class="font-bold text-2xl text-gray-800 mb-4">
+  <section class="mt-8 border-white border-2">
+    <h2 class="font-bold text-2xl mb-4">
       Mes Idées de projets
     </h2>
 
@@ -72,10 +61,27 @@
         <% end %>
       </ul>
     <% else %>
-      <p class="text-gray-500">Vous n'avez pas encore d'idées de projet.</p>
+      <p class="text-center">
+        Vous n'avez pas encore d'idées de projet.
+      </p>
+      <div class="text-center my-8">
+        <%= link_to 'Proposer ma 1ère idée', new_dashboard_portfolio_idea_path, class: "bg-white border-white border text-black hover:bg-black hover:text-white py-2 px-4 rounded-2xl transition hover:duration-150" %>
+      </div>
     <% end %>
-  </div>
-</div>
+  </section>
+</main>
 
 
 <%= link_to 'Retour', root_path %>
+
+<h2>
+  <%= link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
+</h2>
+
+<h2>
+  <%= link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
+</h2>
+
+<h2>
+  <%= link_to 'Ajouter une Idée de Projet', new_dashboard_portfolio_idea_path %>
+</h2>

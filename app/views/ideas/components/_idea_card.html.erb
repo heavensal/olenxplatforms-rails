@@ -1,0 +1,13 @@
+<%# render 'ideas/components/idea_card', idea: idea %>
+
+<li>
+  <%= link_to idea_path(idea), class: "relative block group overflow-hidden rounded-2xl shadow-lg" do %>
+    <%= cl_image_tag idea.avatar.key,
+      alt: idea.title,
+      class: "w-full h-60 object-cover transition-all duration-300 group-hover:brightness-50" %>
+
+    <h3 class="absolute inset-0 flex items-center justify-center text-white text-xl font-semibold opacity-0 transition-all duration-300 group-hover:opacity-100">
+      <%= idea.title %>
+    </h3>
+  <% end %>
+</li>

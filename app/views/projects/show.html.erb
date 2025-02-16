@@ -1,15 +1,23 @@
 
-<main class="px-5 py-12">
-<section class="flex gap-2">
-<img src="company-avatar" alt="avatar">
-<div class="flex flex-col gap-2">
-<p>project_name</p>
-<p>company_name</p>
-</div>
-</section>
+<main class="container mx-auto min-h-screen">
 
-<section>
-contenu du projet
-</section>
+  <h1 class="font-bold text-4xl text-center my-8">
+    <%= @project.title %>
+  </h1>
+
+
+  <section class="grid grid-cols-2 gap-4">
+    <div class="flex items-center">
+      <p>
+        <%= @project.description %>
+      </p>
+    </div>
+
+    <div>
+      <% if @project.avatar.attached? %>
+        <%= cl_image_tag @project.avatar.key, width: 300, height: 300, class: "rounded-lg shadow-md" %>
+      <% end %>
+    </div>
+  </section>
 
 </main>

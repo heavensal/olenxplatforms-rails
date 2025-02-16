@@ -1,66 +1,38 @@
-<div>
-<h1 class="font-bold text-4xl">Modifier mon Idée</h1>
-<p>Find me in app/views/dashboard/ideas/edit.html.erb</p>
-<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md" class="grid grid-rows-[20%_60%_20%]">
-  <%= form_with model: @idea, url: dashboard_portfolio_idea(@idea), method: :patch, html: { class: "space-y-4" } do |form| %>
+<main class="container mx-auto min-h-screen my-8 px-4">
+  <h1 class="text-4xl sm:text-4xl font-bold text-center my-4">
+    Modifier mon idée
+  </h1>
 
+  <section id="form">
+    <%= form_with model: @idea, url: dashboard_portfolio_ideas_path do |form| %>
 
-  <input type="hidden" name="id" value="<%= @idea.id %>">
+      <div class="grid grid-cols-1 gap-4 mx-auto">
 
-    <!-- Titre -->
-      <div>
-        <%= form.text_field :idea_title, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
-        <% if @portfolio.errors[:idea_title].any? %>
-          <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:idea_title].join(", ") %></p>
-        <% end %>
+        <div>
+          <%= form.label :title, "Titre", class: "block mb-2" %>
+          <%= form.text_field :title, class: "w-full border border-gray-500 rounded p-2 active:border-purple-700", placeholder: "Ma nouvelle Idée" %>
+        </div>
+
+        <div>
+          <%= form.label :description, "Description", class: "block mb-2" %>
+          <%= form.text_area :description,
+            class: "w-full border border-gray-500 rounded p-2 min-h-40 focus:border-purple-700 focus:ring-purple-700 focus:ring focus:border",
+            placeholder: "Voici une description détaillée de mon idée afin de vous convaincre de voter pour." %>
+        </div>
+
+        <div>
+          <%= form.label :avatar, class: "block mb-2" %>
+          <%= form.file_field :avatar,
+            class: "w-full border border-gray-500 rounded p-2 focus:border-purple-700" %>
+        </div>
+
+        <div class="text-center">
+          <%= form.submit "Créer l'idée", class: "cursor-pointer text-xl bg-white text-black rounded-full border border-black px-6 py-2 my-8 hover:border-white hover:bg-black transition hover:duration-150 hover:text-white" %>
+        </div>
+
       </div>
 
-  <input
-    type="text"
-    name="title"
-    placeholder="Titre"
-    value="<%= @idea.title %>"
-  >
+    <% end %>
+  </section>
 
-  <!-- Textearea -->
-
-  <textarea
-    class="border border-[var(--border__input)] p-4 text-base mb-5focus:outline-none"
-    name="description"
-    placeholder="Description"
-  ><%= @idea.description %></textarea>
-
-      <div>
-        <%= form.label :idea_description, class: "border border-[var(--border__input)] p-4 text-base mb-5focus:outline-none"
-        <% if @ideas.errors[:idea_description].any? %>
-          <p class="text-red-500 text-sm mt-1"><%= @ideas.errors[:idea_description].join(", ") %></p>
-        <% end %>
-      </div>
-
-    <!-- Avatar -->
-      <div>
-        <%= form.label :avatar, class: "block text-sm font-medium text-gray-700" %>
-        <%= form.file_field :avatar, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm bg-white cursor-pointer focus:ring focus:ring-blue-200 focus:border-blue-500" %>
-        <% if @ideas.errors[:avatar].any? %>
-          <p class="text-red-500 text-sm mt-1"><%= @ideas.errors[:avatar].join(", ") %></p>
-        <% end %>
-      </div>
-
-
-  <div class="flex items-center gap-4">
-
-    <!-- Bouton de soumission -->
-      <div>
-        <%= form.submit "Enregistrer", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition" %>
-      </div>
-
-    <button type="submit" class="p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]">
-      Mettre à jour
-    </button>
-
-     <!-- Bouton dannulation' -->
-    <p onclick="window.history.back();" class="p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]">
-      Annuler
-    </p>
-  </div>
-</form>
+</main>

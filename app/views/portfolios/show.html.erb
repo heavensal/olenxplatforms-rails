@@ -1,121 +1,51 @@
-<div>
-  <h1 class="font-bold text-4xl">Portfolios#show</h1>
-  <p>Find me in app/views/portfolios/show.html.erb</p>
-</div>
+<main class="container mx-auto min-h-screen my-8">
+  <section id="hero-portfolio">
+    <h1 class="font-bold text-4xl">
+      <%= @portfolio.company_name %>
+    </h1>
 
-<main class="px-5 py-12">
+    <p>
+      <%= @portfolio.description %>
+    </p>
 
-profile
+    <div class="grid grid-cols-2">
+      <div class="flex justify-center">
+        <%= cl_image_tag @portfolio.avatar.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
+      </div>
 
-<section class="flex gap-2">
-<img src="company-avatar" alt="avatar">
-<div class="flex flex-col gap-2">
-<p>company_name</p>
-<p>company_catchprase</p>
-</div>
-</section>
+      <div class="flex justify-center">
+        <%= cl_image_tag @portfolio.qr_code.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
+      </div>
 
-description du portfolio/de entreprise
-<section>
-<h2>Description</h2>
-<p>description</p>
-</section>
+    </div>
+  </section>
 
-<section>
-<h2>Projets</h2>
+  <section id="projects" class="my-8">
+    <h2 class="text-xl font-bold">
+      Projets
+    </h2>
 
-map les projects
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @portfolio.projects.each do |project| %>
 
-<ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
+        <%= render 'projects/components/project_card', project: project %>
 
-card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
+      <% end %>
+    </ul>
+  </section>
 
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
+  <section id="ideas" class="mt-8">
+    <h2 class="text-xl font-bold">
+      Idées
+    </h2>
 
- card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <% @portfolio.ideas.each do |idea| %>
 
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
+        <%= render 'ideas/components/idea_card', idea: idea %>
 
- card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
-
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
-
-
-
- </ul>
-</section>
-
-
-<section>
-<h2>Idées</h2>
-
-map les ideas
-
-<ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-12 rounded-b-[20px] p-12 md:grid-cols-3">
-
-card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
-
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
-
- card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
-
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
-
- card
-<li>
- <div class="w-full mb-4 cursor-pointer" >
- <img class="w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" />
-
- <div class="flex flex-col gap-2">
-<h3>card.title</h3>
-<p class="uppercase line-clamp-3">card.description</p>
-</div>
- </div>
- </li>
-
-
-
- </ul>
-</section>
+      <% end %>
+    </ul>
+  </section>
 
 </main>

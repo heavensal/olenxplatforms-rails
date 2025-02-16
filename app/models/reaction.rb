@@ -6,6 +6,14 @@ class Reaction < ApplicationRecord
   validates :reaction_type, presence: true
   validates :reaction_type, inclusion: { in: %w[like dislike] }
 
+  def like?
+    reaction_type == "like"
+  end
+
+  def dislike?
+    reaction_type == "dislike"
+  end
+
   def self.like
     where(reaction_type: "like")
   end

@@ -15,6 +15,7 @@ class IdeasController < ApplicationController
 
   def show
     @idea = @portfolio ? @portfolio.ideas.with_attached_avatar.find(params[:id]) : Idea.with_attached_avatar.find(params[:id])
+    @reaction = current_user.reactions.find_by(idea: @idea) if user_signed_in?
   end
 
   private
