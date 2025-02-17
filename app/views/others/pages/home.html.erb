@@ -22,7 +22,7 @@
     </h2>
 
     <!-- Liste des portfolios -->
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto [&:hover>li]:opacity-50">
       <% @portfolios.each do |portfolio| %>
 
         <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
