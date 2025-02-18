@@ -4,7 +4,10 @@ class ReactionsController < ApplicationController
 
   def create
     if @reaction.save
-      redirect_back fallback_location: root_path, notice: "Vous avez réagi à cette idée de projet"
+      # rend un format turbo frame
+
+
+      # redirect_back fallback_location: root_path, notice: "Vous avez réagi à cette idée de projet"
     else
       redirect_to idea_path(@reaction.idea), alert: "Impossible de réagir à cette idée de projet"
     end
