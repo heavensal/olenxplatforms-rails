@@ -1,13 +1,18 @@
 <%# render 'portfolios/components/portfolio_card', portfolio: portfolio %>
-
-<li class="hover:!opacity-100 transition hover:duration-150">
-  <%= link_to portfolio_path(portfolio), class: "block" do %>
-    <%= cl_image_tag portfolio.avatar.key,
+<li>
+  <%= link_to portfolio_path(portfolio), class: "w-full mb-4 cursor-pointer" do %>
+    <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col  h-[300px] w-full relative justify-center">
+      <%= cl_image_tag portfolio.avatar&.key,
       alt: portfolio.company_name,
-      class: "w-full h-60 object-cover transition-all duration-300" %>
-
-    <h3 class="flex items-center justify-center text-white text-xl">
-      <%= portfolio.company_name %>
-    </h3>
+      class: "w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110"%>
+    </div>
+    <div class="flex flex-col gap-2">
+      <h3 class="text-xl font-semibold uppercase">
+        <%= portfolio.company_name %>
+      </h3>
+      <p  class="uppercase text-[#757575] font-medium">
+        tag
+      </p>
+    </div>
   <% end %>
 </li>

@@ -1,67 +1,46 @@
-<section id="home-hero" class="my-16 grid grid-cols-1 md:grid-cols-2 items-center px-4">
-  <h1 class="font-bold text-4xl md:text-6xl uppercase text-center md:text-start">
-    Collaborez, créez, innovez
-    <br>
-    <span class="text-lg block mt-8 font-bold">
-      Olenx Platforms
-    </span>
-  </h1>
-
-  <p class="mt-8 md:mt-0 mx-auto text-gray-600 text-end">
-    Connectez freelances et entreprises : découvrez des portfolios inspirants, proposez des projets ambitieux, et collaborez en toute simplicité sur une plateforme dédiée.
-  </p>
-</section>
-
 <main class="container mx-auto">
-
-
+  <section id="home-hero" class="p-[35px] flex flex-col items-center gap-8 text-center mb-4 md:p-[50px] md:flex-row md:justify-start">
+    <h1 class="font-bold text-4xl md:text-6xl uppercase text-center md:text-start">
+      Collaborez, créez, innovez
+      <br>
+      <span class="text-lg block mt-8 font-bold">
+        Olenx Platforms
+      </span>
+    </h1>
+    <p class="max-w-[80%] text-center text-[14px] md:max-w-[50%]md:text-right md:text-[18px] md:mb-8 text-gray-600">
+      Connectez freelances et entreprises : découvrez des portfolios inspirants, proposez des projets ambitieux, et collaborez en toute simplicité sur une plateforme dédiée.
+    </p>
+  </section>
   <section id="home-portfolios" class="py-12 px-6">
     <!-- Titre principal -->
-    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
-      Les Portfolios
+    <h2 class="text-xl sm:text-4xl font-medium relative pb-4 mb-8">
+      Portfolios
     </h2>
-
     <!-- Liste des portfolios -->
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto [&:hover>li]:opacity-50">
+    <ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-[3em] rounded-b-[20px] md:grid-cols-3 md:p-12">
       <% @portfolios.each do |portfolio| %>
-
         <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
-
       <% end %>
     </ul>
-
   </section>
-
   <section class="home-ideas py-12 px-6">
-
-    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
-      Les Projets
+    <h2 class="text-xl sm:text-4xl font-medium relative pb-4 mb-8">
+      Idées
     </h2>
-
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-[3em] rounded-b-[20px] md:grid-cols-3 md:p-12">
       <% @ideas.each do |idea| %>
-
         <%= render 'ideas/components/idea_card', idea: idea %>
-
       <% end %>
     </ul>
-
   </section>
-
   <section class="home-ideas py-12 px-6">
-
-    <h2 class="text-xl sm:text-4xl font-bold relative pb-4 mb-8">
-      Les Réalisations
+    <h2 class="text-xl sm:text-4xl font-medium relative pb-4 mb-8">
+      Réalisations
     </h2>
-
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-[3em] rounded-b-[20px] md:grid-cols-3 md:p-12">
       <% @projects.each do |project| %>
-
         <%= render 'projects/components/project_card', project: project %>
-
       <% end %>
     </ul>
-
   </section>
-
 </main>

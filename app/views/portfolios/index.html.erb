@@ -1,16 +1,12 @@
   <main id="home-portfolios" class="container mx-auto min-h-screen my-8">
-    <!-- Titre principal -->
-    <h1 class="text-4xl sm:text-4xl font-bold text-center my-4">
-      Les Portfolios
-    </h1>
-
-    <!-- Liste des portfolios -->
-    <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-      <% @portfolios.each do |portfolio| %>
-
-        <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
-
-      <% end %>
-    </ul>
-
-  </main>
+  <!-- Titre principal -->
+  <h1 class="text-4xl sm:text-4xl font-medium text-center my-4">
+    Portfolios
+  </h1>
+  <!-- Liste des portfolios -->
+  <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+    <% @portfolios.each do |portfolio| %>
+      <%= render 'portfolios/components/portfolio_card', portfolio: portfolio %>
+    <% end %>
+  </ul>
+</main>
