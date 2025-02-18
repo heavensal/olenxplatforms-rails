@@ -1,16 +1,17 @@
 <%# render 'ideas/components/idea_card', idea: idea %>
 <li>
   <%= link_to idea_path(idea), class: "w-full mb-4 cursor-pointer" do %>
-    <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative justify-center">
+    <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center
+    bg-white/5 backdrop-blur-lg border border-white/20 shadow-lg">
       <%= cl_image_tag idea.avatar.key,
       alt: idea.title,
-      class:"w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110" %>
+      class:"w-full h-full object-contain transition-all duration-400 ease-in-out hover:scale-110"  %>
     </div>
     <div class="flex flex-col gap-2">
       <h3 class="text-2xl uppercase font-semibold">
         <%= idea.title %>
       </h3>
-      <p class="uppercase text-[#757575] font-medium">nom de l'entreprise</p>
+      <p class="uppercase text-[var(--tag-color)] font-medium">nom de l'entreprise</p>
     </div>
   <% end %>
 </li>

@@ -63,7 +63,7 @@ group :development do
   gem "web-console"
   gem "solargraph"
   gem "htmlbeautifier"
-  gem "hotwire-spark"
+  # gem "hotwire-spark"
 end
 
 group :test do

@@ -1,34 +1,19 @@
 <%# render 'portfolios/components/portfolio_card', portfolio: portfolio %>
-<<<<<<< HEAD
 <li>
   <%= link_to portfolio_path(portfolio), class: "w-full mb-4 cursor-pointer" do %>
-    <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col  h-[300px] w-full relative justify-center">
+    <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center
+    bg-white/5 backdrop-blur-lg border border-white/20 shadow-lg">
       <%= cl_image_tag portfolio.avatar&.key,
-      alt: portfolio.company_name,
-      class: "w-full object-cover object-center transition-all duration-400 ease-in-out hover:scale-110"%>
+    alt: portfolio.company_name,
+    class: " object-contain transition-all duration-400 ease-in-out hover:scale-110" %>
     </div>
     <div class="flex flex-col gap-2">
-      <h3 class="text-xl font-semibold uppercase">
+      <h3 class="text-2xl uppercase font-semibold">
         <%= portfolio.company_name %>
       </h3>
       <p  class="uppercase text-[#757575] font-medium">
         tag
       </p>
     </div>
-=======
-
-<li class="hover:!opacity-100 transition hover:duration-150">
-  <%= link_to portfolio_path(portfolio), class: "block" do %>
-
-    <% if portfolio.avatar.key %>
-      <%= cl_image_tag portfolio.avatar.key,
-      alt: portfolio.company_name,
-      class: "w-full h-60 object-cover transition-all duration-300" %>
-    <% end %>
-
-    <h3 class="flex items-center justify-center text-white text-xl">
-      <%= portfolio.company_name %>
-    </h3>
->>>>>>> 55f83a0b19f31556bbcfef8c778782fcb326143e
   <% end %>
 </li>

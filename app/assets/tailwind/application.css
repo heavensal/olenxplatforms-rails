@@ -1,1 +1,9 @@
 @import "tailwindcss";
+:root {
+  --bg-transparent: rgba(0, 0, 0, 0.8);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --border-input: #333333;
+  --bg-input: #121212;
+  --txt-hover:#6c41b9;
+  --tag-color: #757575;
+}

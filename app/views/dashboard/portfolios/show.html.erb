@@ -6,7 +6,7 @@
         <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
       <% end %>
       <div class="">
-        <h1 class="font-medium text-4xl mb-2">
+        <h1 class="font-medium text-2xl mb-2">
           <%= @portfolio.company_name %>
         </h1>
         <p class="text-gray-500 text-lg">
@@ -15,15 +15,14 @@
       </div>
     </div>
     <div class="flex gap-4">
+      <%= link_to edit_dashboard_portfolio_path do %>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
+        </svg>
+      <% end %>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48L0 80zM64 96l0 64 64 0 0-64L64 96zM0 336c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96zm64 16l0 64 64 0 0-64-64 0zM304 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm80 64l-64 0 0 64 64 0 0-64zM256 304c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16l0 96c0 8.8-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-160zM368 480a16 16 0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z"/></svg>
     </div>
     <!-- QR Code et Avatar -->
-    <div class="mt-6 grid grid-cols-2 gap-4">
-      <% if @portfolio.qr_code.attached? %>
-        <div class="flex justify-center">
-          <%= cl_image_tag @portfolio.qr_code.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
-        </div>
-      <% end %>
-    </div>
   </section>
   <!-- Section Réalisations -->
   <section class="mt-8">
@@ -43,9 +42,9 @@
     <% end %>
   </section>
   <!-- Section Idées de projets -->
-  <section class="mt-8 border-white border-2">
+  <section class="mt-8">
     <h2 class="font-bold text-2xl mb-4">
-      Mes idées de projets
+      Mes idées
     </h2>
     <% if @portfolio.ideas.any? %>
       <ul class="space-y-3">
