@@ -17,6 +17,7 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+
   </head>
   <body class="bg-black text-white">
     <header id="navbar" class="sticky top-0 z-50 h-24 px-4 bg-black/80 backdrop-blur-sm">
@@ -28,4 +29,5 @@
       <p >© <%= Time.current.year %> Olenx Platforms</p>
     </footer>
   </body>
+
 </html>
