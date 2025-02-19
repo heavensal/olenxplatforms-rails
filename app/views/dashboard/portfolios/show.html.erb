@@ -1,73 +1,93 @@
-<main class="py-[50px] px-[20px]">
+<main class="max-w-[97dvw] min-h-screen mx-auto">
   <!-- Informations du portfolio -->
-  <section class="grid grid-rows-[90%_10%] border-b-2 border-[#757575]">
+  <section class="grid grid-cols-[80%_20%] md:grid-cols-[90%_10%] items-center border-b-2 border-[var(--tag-color)] py-[50px] px-[20px]">
     <div class="flex gap-4 items-center">
       <% if @portfolio.avatar.attached? %>
         <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
       <% end %>
       <div class="">
-        <h1 class="font-medium text-2xl mb-2">
+        <h1 class="font-semibold text-2xl ">
           <%= @portfolio.company_name %>
         </h1>
-        <p class="text-gray-500 text-lg">
+        <p class="text-[var(--tag-color)]">
           <%= @portfolio.description %>
         </p>
       </div>
     </div>
     <div class="flex gap-4">
       <%= link_to edit_dashboard_portfolio_path do %>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512" fill="white">
           <path d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z"/>
         </svg>
       <% end %>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48L0 80zM64 96l0 64 64 0 0-64L64 96zM0 336c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96zm64 16l0 64 64 0 0-64-64 0zM304 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm80 64l-64 0 0 64 64 0 0-64zM256 304c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16l0 96c0 8.8-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-160zM368 480a16 16 0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 448 512" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 80C0 53.5 21.5 32 48 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48L0 80zM64 96l0 64 64 0 0-64L64 96zM0 336c0-26.5 21.5-48 48-48l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96zm64 16l0 64 64 0 0-64-64 0zM304 32l96 0c26.5 0 48 21.5 48 48l0 96c0 26.5-21.5 48-48 48l-96 0c-26.5 0-48-21.5-48-48l0-96c0-26.5 21.5-48 48-48zm80 64l-64 0 0 64 64 0 0-64zM256 304c0-8.8 7.2-16 16-16l64 0c8.8 0 16 7.2 16 16s7.2 16 16 16l32 0c8.8 0 16-7.2 16-16s7.2-16 16-16s16 7.2 16 16l0 96c0 8.8-7.2 16-16 16l-64 0c-8.8 0-16-7.2-16-16s-7.2-16-16-16s-16 7.2-16 16l0 64c0 8.8-7.2 16-16 16l-32 0c-8.8 0-16-7.2-16-16l0-160zM368 480a16 16 0 1 1 0-32 16 16 0 1 1 0 32zm64 0a16 16 0 1 1 0-32 16 16 0 1 1 0 32z"/></svg>
     </div>
     <!-- QR Code et Avatar -->
   </section>
   <!-- Section Réalisations -->
   <section class="mt-8">
-    <h2 class="font-medium text-2xl mb-4">
+    <h2 class="font-semibold text-2xl mb-4">
       Mes réalisations
     </h2>
     <% if @portfolio.projects.any? %>
-      <ul class="space-y-3">
+      <ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-[3em] rounded-b-[20px] md:grid-cols-3 md:p-12">
         <% @portfolio.projects.each do |project| %>
-          <li class="">
-            <%= link_to project.title, dashboard_portfolio_project_path(project), class: "" %>
-          </li>
+          <%= render 'dashboard/projects/components/dashboard_project_card', project: project %>
+        </li>
+      <% end %>
+      <li>
+        <%= link_to new_dashboard_portfolio_project_path do%>
+          <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center transition-all duration-400 ease-in-out
+    bg-white/5 backdrop-blur-lg border border-white/20 shadow-lg cursor-pointer ">
+            <h3 class="text-2xl uppercase font-semibold hover:scale-110 flex flex-col gap-4 items-center">
+              Ajoutez un projet
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32px" height="32px" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+            </h3>
+          </div>
         <% end %>
-      </ul>
-    <% else %>
-      <p class="text-gray-500">Vous n'avez pas encore inséré vos réalisations.</p>
-    <% end %>
-  </section>
-  <!-- Section Idées de projets -->
-  <section class="mt-8">
-    <h2 class="font-bold text-2xl mb-4">
-      Mes idées
-    </h2>
-    <% if @portfolio.ideas.any? %>
-      <ul class="space-y-3">
-        <% @portfolio.ideas.each do |idea| %>
-          <li class="bg-gray-100 hover:bg-gray-200 transition p-3 rounded-lg">
-            <%= link_to idea.title, dashboard_portfolio_idea_path(idea), class: "text-blue-600 font-medium" %>
-          </li>
+      </li>
+    </ul>
+  <% else %>
+    <p class="text-[var(--tag-color)]">Vous n'avez pas encore inséré vos réalisations.</p>
+  <% end %>
+</section>
+<!-- Section Idées de projets -->
+<section class="mt-8">
+  <h2 class="font-semibold text-2xl mb-4">
+    Mes idées
+  </h2>
+  <% if @portfolio.ideas.any? %>
+    <ul class="max-w-[97dvw] mx-auto grid grid-cols-1 gap-[3em] rounded-b-[20px] md:grid-cols-3 md:p-12">
+      <% @portfolio.ideas.each do |idea| %>
+        <%= render 'dashboard/ideas/components/dashboard_idea_card', idea: idea %>
+      <% end %>
+      <li>
+        <%= link_to new_dashboard_portfolio_idea_path do %>
+          <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center transition-all duration-400 ease-in-out
+    bg-white/5 backdrop-blur-lg border border-white/20 shadow-lg cursor-pointer">
+            <h3 class="text-2xl uppercase font-semibold hover:scale-110 flex flex-col gap-4 items-center">
+              Ajoutez une idée
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32px" height="32px" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+            </h3>
+          </div>
         <% end %>
-      </ul>
-    <% else %>
-      <p class="text-center">
-        Vous n'avez pas encore d'idées de projet.
-      </p>
-      <div class="text-center my-8">
-        <%= link_to 'Proposer ma 1ère idée', new_dashboard_portfolio_idea_path, class: "bg-white border-white border text-black hover:bg-black hover:text-white py-2 px-4 rounded-2xl transition hover:duration-150" %>
-      </div>
-    <% end %>
-  </section>
+      </li>
+    </ul>
+  <% else %>
+    <p class="text-center">
+      Vous n'avez pas encore d'idées de projet.
+    </p>
+    <div class="text-center my-8">
+      <%= link_to 'Proposer ma 1ère idée', new_dashboard_portfolio_idea_path, class: "bg-white border-white border text-black hover:bg-black hover:text-white py-2 px-4 rounded-2xl transition hover:duration-150" %>
+    </div>
+  <% end %>
+</section>
 </main>
 <%= link_to 'Retour', root_path %>
-<h2>
-  <%= link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
+<%# <h2>
+  <%# link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
 </h2>
+%>
 <h2>
   <%= link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
 </h2>

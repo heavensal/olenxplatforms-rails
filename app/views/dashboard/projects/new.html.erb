@@ -1,41 +1,28 @@
-
-<h1 class="font-bold text-4xl">Insérer une réalisation</h1>
-
-<div class="max-w-lg mx-auto bg-white p-6 rounded-lg shadow-md">
-
-
-  <%= form_with model: @project, url: dashboard_portfolio_projects_path, html: { class: "space-y-4" } do |form| %>
-
-  <!-- Titre -->
-    <div>
-      <%= form.label :title, 'Titre', class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
-      <%= form.text_field :title, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500", placeholder: "Donnez un titre à ma réalisation" %>
+<main class="p-4 flex flex-col gap-8">
+  <h1 class="uppercase font-bold leading-[1.2] text-[2.25rem]">Insérer une réalisation</h1>
+  <%= form_with model: @project, url: dashboard_portfolio_projects_path, html: { class:  'flex flex-col gap-4' } do |form| %>
+    <!-- Titre -->
+    <div class="flex flex-col gap-2">
+      <%= form.label :title, 'Titre', class:'font-medium'  %>
+      <%= form.text_field :title, class: "p-2 border border-[var(--border-input)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1", placeholder: "Donnez un titre à ma réalisation" %>
     </div>
-
-  <!-- Textearea -->
-    <div>
-      <%= form.label :description, 'Description', class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500" %>
-      <%= form.text_area :description, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm focus:ring focus:ring-blue-200 focus:border-blue-500", placeholder: "Décrivez votre projet" %>
+    <!-- Textearea -->
+    <div class="flex flex-col gap-2">
+      <%= form.label :description, 'Description', class:'font-medium' %>
+      <%= form.text_area :description, class:"p-2 border border-[var(--border-input)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1 resize-none h-32", placeholder: "Décrivez votre projet" %>
     </div>
-
-  <!-- Avatar -->
-    <div>
-      <%= form.label :avatar, "Insérer une image",class: "block text-sm font-medium text-gray-700" %>
-      <%= form.file_field :avatar, class: "mt-1 w-full px-4 py-2 border rounded-lg shadow-sm bg-white cursor-pointer focus:ring focus:ring-blue-200 focus:border-blue-500" %>
+    <!-- Avatar -->
+    <div class="flex flex-col gap-2">
+      <%= form.label :avatar, "Insérer une image",class:'font-medium' %>
+      <%= form.file_field :avatar, class:   "p-2 border border-[var(--tag-color)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1 " %>
     </div>
-
-
-  <div class="flex items-center gap-4">
-
-    <!-- Bouton de soumission -->
+    <div class="flex items-center gap-4">
+      <!-- Bouton de soumission -->
       <div>
-        <%= form.submit "Enregistrer", class: "w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg shadow-md transition" %>
+        <%= form.submit "Enregistrer", class: "w-max px-6 py-3 rounded-[24px] border border-black bg-white text-black transition-all duration-400 ease-in-out hover:bg-[var(--txt-hover)] hover:text-white hover:border-[var(--txt-hover)] cursor-pointer" %>
       </div>
-
-     <!-- Bouton dannulation' -->
-     <%= link_to 'Annuler', dashboard_portfolio_path, class: "p-4 px-8 transition-all duration-400 ease-in-out h-max w-max rounded-[20px]" %>
-
-  </div>
-
+      <!-- Bouton dannulation' -->
+      <%= link_to 'Annuler', dashboard_portfolio_path, class: "w-max px-6 py-3 rounded-[24px] border border-black bg-white text-black transition-all duration-400 ease-in-out hover:bg-[var(--red-danger)] hover:text-white hover:border-[var(--red-danger)] cursor-pointer" %>
+    </div>
   <% end %>
-</div>
+</main>
