@@ -4,7 +4,7 @@
   <%= form_with model: @portfolio, url: dashboard_portfolio_path, method: :patch, html: { class: 'flex flex-col gap-4' } do |form| %>
     <!-- Titre -->
     <div class="flex flex-col gap-2">
-      <%= form.label :company_name, "Nom de l'entreprise" %>
+      <%= form.label :company_name, "Nom de l'entreprise", class:'font-medium' %>
       <%= form.text_field :company_name, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1"%>
       <% if @portfolio.errors[:company_name].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:company_name].join(", ") %></p>
@@ -12,7 +12,7 @@
     </div>
     <!-- Description -->
     <div class="flex flex-col gap-2">
-      <%= form.label :description, "Description" %>
+      <%= form.label :description, "Description", class:'font-medium' %>
       <%= form.text_area :description, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1 resize-none" %>
       <% if @portfolio.errors[:description].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:description].join(", ") %></p>
@@ -20,7 +20,7 @@
     </div>
     <!-- Avatar -->
     <div class="flex flex-col gap-2">
-      <%= form.label :avatar,"Photo de profil"  %>
+      <%= form.label :avatar,"Photo de profil", class:'font-medium'  %>
       <%= form.file_field :avatar, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1", placeholder: 'Parcourir mes images' %>
       <% if @portfolio.errors[:avatar].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:avatar].join(", ") %></p>
