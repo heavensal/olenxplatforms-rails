@@ -1,21 +1,28 @@
-
-<main class="container mx-auto px-4 min-h-screen">
-  <h1 class="font-bold text-4xl">
-    <%= @project.title %>
-  </h1>
-
-  <section class="grid grid-cols-2 gap-4">
-    <div class="flex items-center">
-      <p>
-        <%= @project.description %>
-      </p>
+<main class="container mx-auto min-h-screen my-8 px-4">
+  <section class="grid grid-cols-4 mb-8">
+    <% if @portfolio.avatar.attached? %>
+      <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
+    <% end %>
+    <div class="col-span-3">
+      <h1 class="font-semibold text-4xl">
+        <%= @project.title %>
+      </h1>
+      <p class="">  <%= @portfolio.company_name %></p>
+      <small class="text-gray-500 text-sm block text-center">
+        Dernière mise à jour: <%= @project.updated_at.strftime("%d %B %Y à %H:%M") %>
+      </small>
     </div>
-
+  </section>
+  <section >
     <div>
       <% if @project.avatar.attached? %>
         <%= cl_image_tag @project.avatar.key, width: 300, height: 300, class: "rounded-lg shadow-md" %>
       <% end %>
     </div>
+    <div class="flex items-center">
+      <p>
+        <%= @project.description %>
+      </p>
+    </div>
   </section>
-
 </main>

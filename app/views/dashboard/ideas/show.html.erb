@@ -1,24 +1,19 @@
 <main class="container mx-auto min-h-screen my-8 px-4">
-
   <section id="hero-idea" class="grid grid-cols-4 mb-8">
-
     <div class="col-span-3">
-      <h1 class="font-bold text-4xl text-center mb-2">
-        <%= @idea.title %> <br> <%= @portfolio.company_name %>
+      <h1 class="font-semibold text-2xl  mb-2">
+        <%= @idea.title %>
       </h1>
-
+      <p class="">  <%= @portfolio.company_name %></p>
       <small class="text-gray-500 text-sm block text-center">
         Dernière mise à jour: <%= @idea.updated_at.strftime("%d %B %Y à %H:%M") %>
       </small>
     </div>
-
     <div class="flex justify-center gap-4 items-center">
-
       <%# Likes logic %>
       <%# si il n'y a pas de like, alors les svg sont noirs %>
       <%# si il y a un like, alors le svg est blanc, et le button renvoie vers la suppression du like %>
       <%# meme logique pour les dislikes %>
-
       <% if @reaction && @reaction.like? %>
         <%= link_to reaction_path(@reaction), data: {turbo_method: :delete}, class:"text-center" do %>
           <%= render 'ideas/components/like_selected_svg' %>
@@ -26,7 +21,6 @@
             <%= @idea.likes_count %>
           </sup>
         <% end %>
-
       <% else %>
         <%= button_to reactions_path, params: { reaction: {idea_id: @idea.id, reaction_type: "like"} } do %>
           <%= render 'ideas/components/like_svg' %>
@@ -34,20 +28,15 @@
             <%= @idea.likes_count %>
           </sup>
         <% end %>
-
       <% end %>
-
       <%# Dislikes logic %>
-
       <% if @reaction && @reaction.dislike? %>
         <%= link_to reaction_path(@reaction), data: {turbo_method: :delete}, class: "text-center" do %>
           <%= render 'ideas/components/dislike_selected_svg' %>
           <sup>
             <%= @idea.dislikes_count %>
           </sup>
-
         <% end %>
-
       <% else %>
         <%= button_to reactions_path, params: { reaction: {idea_id: @idea.id, reaction_type: "dislike"} } do %>
           <%= render 'ideas/components/dislike_svg' %>
@@ -55,21 +44,15 @@
             <%= @idea.dislikes_count %>
           </sup>
         <% end %>
-
       <% end %>
-
     </div>
-
   </section>
-
   <section class="mb-8">
     <%= cl_image_tag @idea.avatar.key, class: "rounded-lg shadow-md w-full" %>
   </section>
-
   <section class="mb-8">
     <p>
       <%= @idea.description %>
     </p>
   </section>
-
 </main>

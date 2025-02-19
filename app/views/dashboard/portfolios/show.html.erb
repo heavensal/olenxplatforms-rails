@@ -1,6 +1,6 @@
-<main class="max-w-[97dvw] mx-auto">
+<main class="max-w-[97dvw] min-h-screen mx-auto">
   <!-- Informations du portfolio -->
-  <section class="grid grid-cols-[80%_20%] md:grid-cols-[90%_10%] items-center border-b-2 border-[#757575] py-[50px] px-[20px]">
+  <section class="grid grid-cols-[80%_20%] md:grid-cols-[90%_10%] items-center border-b-2 border-[var(--tag-color)] py-[50px] px-[20px]">
     <div class="flex gap-4 items-center">
       <% if @portfolio.avatar.attached? %>
         <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
@@ -9,7 +9,7 @@
         <h1 class="font-semibold text-2xl ">
           <%= @portfolio.company_name %>
         </h1>
-        <p class="text-gray-500">
+        <p class="text-[var(--tag-color)]">
           <%= @portfolio.description %>
         </p>
       </div>
@@ -62,13 +62,15 @@
         <%= render 'dashboard/ideas/components/dashboard_idea_card', idea: idea %>
       <% end %>
       <li>
-        <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center transition-all duration-400 ease-in-out
+        <%= link_to new_dashboard_portfolio_idea_path do %>
+          <div class="overflow-hidden rounded-[24px] mb-4 flex flex-col h-[300px] w-full relative items-center justify-center transition-all duration-400 ease-in-out
     bg-white/5 backdrop-blur-lg border border-white/20 shadow-lg cursor-pointer">
-          <h3 class="text-2xl uppercase font-semibold hover:scale-110 flex flex-col gap-4 items-center">
-            Ajoutez une idée
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32px" height="32px" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
-          </h3>
-        </div>
+            <h3 class="text-2xl uppercase font-semibold hover:scale-110 flex flex-col gap-4 items-center">
+              Ajoutez une idée
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="32px" height="32px" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM232 344l0-64-64 0c-13.3 0-24-10.7-24-24s10.7-24 24-24l64 0 0-64c0-13.3 10.7-24 24-24s24 10.7 24 24l0 64 64 0c13.3 0 24 10.7 24 24s-10.7 24-24 24l-64 0 0 64c0 13.3-10.7 24-24 24s-24-10.7-24-24z"/></svg>
+            </h3>
+          </div>
+        <% end %>
       </li>
     </ul>
   <% else %>
