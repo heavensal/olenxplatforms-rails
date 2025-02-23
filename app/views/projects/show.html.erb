@@ -1,23 +1,28 @@
-
-<main class="container mx-auto min-h-screen">
-
-  <h1 class="font-bold text-4xl text-center my-8">
-    <%= @project.title %>
-  </h1>
-
-
-  <section class="grid grid-cols-2 gap-4">
-    <div class="flex items-center">
-      <p>
-        <%= @project.description %>
-      </p>
+<main class="max-w-[97dvw] min-h-screen mx-auto">
+  <section class="grid grid-cols-[20%_80%] md:grid-cols-[10%_90%] items-center px-[20px] pt-0 pb-[50px]">
+    <% if @project.avatar.attached? %>
+      <%= cl_image_tag @project.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
+    <% end %>
+    <div class="">
+      <h1 class="font-semibold text-2xl">
+        <%= @project.title %>
+      </h1>
+      <p class="text-[var(--tag-color)]">  </p>
+      <small class="text-[var(--tag-color)]">
+        Dernière mise à jour: <%= @project.updated_at.strftime("%d %B %Y à %H:%M") %>
+      </small>
     </div>
-
-    <div>
+  </section>
+  <section class="flex flex-col  w-full">
+    <div class="mb-9 flex justify-center">
       <% if @project.avatar.attached? %>
         <%= cl_image_tag @project.avatar.key, width: 300, height: 300, class: "rounded-lg shadow-md" %>
       <% end %>
     </div>
+    <div >
+      <p>
+        <%= @project.description %>
+      </p>
+    </div>
   </section>
-
 </main>

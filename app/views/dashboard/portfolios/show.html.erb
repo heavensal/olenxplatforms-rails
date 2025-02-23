@@ -2,8 +2,10 @@
   <!-- Informations du portfolio -->
   <section class="grid grid-cols-[80%_20%] md:grid-cols-[90%_10%] items-center border-b-2 border-[var(--tag-color)] py-[50px] px-[20px]">
     <div class="flex gap-4 items-center">
-      <% if @portfolio.avatar.attached? %>
-        <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
+      <%= link_to portfolio_path(@portfolio) do %>
+        <% if @portfolio.avatar.attached? %>
+          <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
+        <% end %>
       <% end %>
       <div class="">
         <h1 class="font-semibold text-2xl ">
@@ -83,14 +85,13 @@
   <% end %>
 </section>
 </main>
-<%= link_to 'Retour', root_path %>
+<%# link_to 'Retour', root_path %>
 <%# <h2>
   <%# link_to 'Modifier Mon Portfolio', edit_dashboard_portfolio_path %>
 </h2>
-%>
-<h2>
-  <%= link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
+<%# <h2>
+  <%# link_to 'Ajouter un Projet', new_dashboard_portfolio_project_path %>
 </h2>
 <h2>
-  <%= link_to 'Ajouter une Idée de Projet', new_dashboard_portfolio_idea_path %>
+  <%# link_to 'Ajouter une Idée de Projet', new_dashboard_portfolio_idea_path %>
 </h2>

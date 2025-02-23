@@ -1,15 +1,15 @@
-<main class="container mx-auto min-h-screen my-8 px-4">
-  <section id="hero-idea" class="grid grid-cols-4 mb-8">
-    <div class="col-span-3">
-      <h1 class="font-semibold text-2xl  mb-2">
+<main class="max-w-[97dvw] min-h-screen mx-auto">
+  <section id="hero-idea" class="grid grid-cols-[20%_60%_20%] md:grid-cols-[10%_60%_30%] items-center px-[20px] pt-0 pb-[50px]">
+    <% if @portfolio.avatar.attached? %>
+      <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1] md:place-self-center" %>
+    <% end %>
+    <div >
+      <h1 class="font-semibold text-2xl">
         <%= @idea.title %>
       </h1>
-      <p class="">  <%= @portfolio.company_name %></p>
-      <small class="text-gray-500 text-sm block text-center">
-        Dernière mise à jour: <%= @idea.updated_at.strftime("%d %B %Y à %H:%M") %>
-      </small>
+      <p class="text-[var(--tag-color)]">  <%= @portfolio.company_name %></p>
     </div>
-    <div class="flex justify-center gap-4 items-center">
+    <div class="flex justify-center gap-4 items-center ">
       <%# Likes logic %>
       <%# si il n'y a pas de like, alors les svg sont noirs %>
       <%# si il y a un like, alors le svg est blanc, et le button renvoie vers la suppression du like %>
@@ -46,6 +46,9 @@
         <% end %>
       <% end %>
     </div>
+    <small class="text-[var(--tag-color)] w-[100dvw] flex mt-4">
+      Dernière mise à jour: <%= @idea.updated_at.strftime("%d %B %Y à %H:%M") %>
+    </small>
   </section>
   <section class="mb-8">
     <%= cl_image_tag @idea.avatar.key, class: "rounded-lg shadow-md w-full" %>

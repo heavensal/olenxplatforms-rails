@@ -1,26 +1,26 @@
-<main class="container mx-auto min-h-screen my-8 px-4">
-  <section class="grid grid-cols-4 mb-8">
+<main class="max-w-[97dvw] min-h-screen mx-auto">
+  <section class="grid grid-cols-[20%_80%] md:grid-cols-[10%_90%] items-center px-[20px] pt-0 pb-[50px]">
     <% if @portfolio.avatar.attached? %>
       <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-full aspect-[1/1]" %>
     <% end %>
-    <div class="col-span-3">
-      <h1 class="font-semibold text-4xl">
+    <div class="">
+      <h1 class="font-semibold text-2xl">
         <%= @project.title %>
       </h1>
-      <p class="">  <%= @portfolio.company_name %></p>
-      <small class="text-gray-500 text-sm block text-center">
+      <p class="text-[var(--tag-color)]">  <%= @portfolio.company_name %></p>
+      <small class="text-[var(--tag-color)]">
         Dernière mise à jour: <%= @project.updated_at.strftime("%d %B %Y à %H:%M") %>
       </small>
     </div>
   </section>
-  <section >
-    <div>
+  <section class="flex flex-col  w-full">
+    <div class="mb-9 flex justify-center">
       <% if @project.avatar.attached? %>
-        <%= cl_image_tag @project.avatar.key, width: 300, height: 300, class: "rounded-lg shadow-md" %>
+        <%= cl_image_tag @project.avatar.key, class: "rounded-lg shadow-md" %>
       <% end %>
     </div>
-    <div class="flex items-center">
-      <p>
+    <div class="">
+      <p class="text-left">
         <%= @project.description %>
       </p>
     </div>

@@ -1,22 +1,22 @@
-<main class="container mx-auto min-h-screen my-8">
-  <section id="hero-portfolio">
-    <h1 class="font-medium text-4xl">
-      <%= @portfolio.company_name %>
-    </h1>
-    <p>
-      <%= @portfolio.description %>
-    </p>
-    <div class="grid grid-cols-2">
-      <div class="flex justify-center">
-        <%= cl_image_tag @portfolio.avatar.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
+<main class="max-w-[97dvw] min-h-screen mx-auto">
+  <section id="hero-portfolio" class="grid grid-cols-[80%_20%] md:grid-cols-[90%_10%] items-center border-b-2 border-[var(--tag-color)] px-[20px] pt-0 pb-[50px]">
+    <div class="flex gap-4 items-center">
+      <%= cl_image_tag @portfolio.avatar.key, width: 50, height: 50, class: "rounded-lg shadow-md" %>
+      <div class="">
+        <h1 class="font-semibold text-2xl ">
+          <%= @portfolio.company_name %>
+        </h1>
+        <p class="text-[var(--tag-color)]">
+          <%= @portfolio.description %>
+        </p>
       </div>
-      <div class="flex justify-center">
-        <%= cl_image_tag @portfolio.qr_code.key, width: 100, height: 100, class: "rounded-lg shadow-md" %>
-      </div>
+    </div>
+    <div class="flex justify-center">
+      <%= cl_image_tag @portfolio.qr_code.key, width: 50, height: 50, class: "rounded-lg shadow-md" %>
     </div>
   </section>
   <section id="projects" class="my-8">
-    <h2 class="text-xl font-medium">
+    <h2 class="font-semibold text-2xl mb-4">
       Projets
     </h2>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
@@ -26,7 +26,7 @@
     </ul>
   </section>
   <section id="ideas" class="mt-8">
-    <h2 class="text-xl font-medium">
+    <h2 class="font-semibold text-2xl mb-4">
       Idées
     </h2>
     <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

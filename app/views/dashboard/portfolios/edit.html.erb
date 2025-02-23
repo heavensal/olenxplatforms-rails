@@ -5,7 +5,7 @@
     <!-- Titre -->
     <div class="flex flex-col gap-2">
       <%= form.label :company_name, "Nom de l'entreprise", class:'font-medium' %>
-      <%= form.text_field :company_name, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1"%>
+      <%= form.text_field :company_name, class: "p-2 border border-[var(--border-input)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1"%>
       <% if @portfolio.errors[:company_name].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:company_name].join(", ") %></p>
       <% end %>
@@ -13,7 +13,7 @@
     <!-- Description -->
     <div class="flex flex-col gap-2">
       <%= form.label :description, "Description", class:'font-medium' %>
-      <%= form.text_area :description, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1 resize-none" %>
+      <%= form.text_area :description, class: "p-2 border border-[var(--border-input)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1 resize-none" %>
       <% if @portfolio.errors[:description].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:description].join(", ") %></p>
       <% end %>
@@ -21,14 +21,14 @@
     <!-- Avatar -->
     <div class="flex flex-col gap-2">
       <%= form.label :avatar,"Photo de profil", class:'font-medium'  %>
-      <%= form.file_field :avatar, class: "p-2 border border-[#333333] rounded-[5px] w-full focus:outline-none focus:ring-[#6c41b9] focus:ring-1", placeholder: 'Parcourir mes images' %>
+      <%= form.file_field :avatar, class: "p-2 border border-[var(--border-input)] rounded-[5px] w-full focus:outline-none focus:ring-[var(--txt-hover)] focus:ring-1", placeholder: 'Parcourir mes images' %>
       <% if @portfolio.errors[:avatar].any? %>
         <p class="text-red-500 text-sm mt-1"><%= @portfolio.errors[:avatar].join(", ") %></p>
       <% end %>
     </div>
     <!-- Bouton de soumission -->
     <div class="flex flex-col gap-2">
-      <%= form.submit "Enregistrer", class: "w-max px-6 py-3 rounded-[24px] border border-black bg-white text-black transition-all duration-400 ease-in-out hover:bg-[#6c41b9] hover:text-white hover:border-[#6c41b9] cursor-pointer" %>
+      <%= form.submit "Enregistrer", class: "w-max px-6 py-3 rounded-[24px] border border-black bg-white text-black transition-all duration-400 ease-in-out hover:bg-[var(--txt-hover)] hover:text-white hover:border-[var(--txt-hover)] cursor-pointer" %>
     </div>
   <% end %>
 </main>
