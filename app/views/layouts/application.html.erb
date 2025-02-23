@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <title><%= content_for(:title) || "Olenx Platforms" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -25,7 +25,7 @@
     </header>
     <%= render 'layouts/notification/message' %>
     <%= yield %>
-    <footer>
+    <footer class="text-center text-gray-400 text-sm py-4">
       <p >© <%= Time.current.year %> Olenx Platforms</p>
     </footer>
   </body>
